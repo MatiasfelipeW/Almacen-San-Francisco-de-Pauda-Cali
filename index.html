@@ -1,0 +1,1200 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>San Francisco de Padua Cali - Artículos Religiosos</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Open+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beige-light: #f8f3e9;
+            --beige-medium: #f0e6d3;
+            --mustard-light: #e6d6a5;
+            --mustard-medium: #d4b96a;
+            --coffee-light: #d7c9b5;
+            --coffee-medium: #b8a78d;
+            --brown-light: #8b7355;
+            --brown-dark: #5d4c34;
+            --white: #ffffff;
+            --cream: #fffef8;
+            --shadow: rgba(93, 76, 52, 0.1);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Open Sans', sans-serif;
+            color: var(--brown-dark);
+            background-color: var(--cream);
+            overflow-x: hidden;
+            line-height: 1.6;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: 'Merriweather', serif;
+            color: var(--brown-dark);
+            font-weight: 700;
+        }
+
+        /* Preloader */
+        #preloader {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(135deg, var(--beige-light) 0%, var(--coffee-light) 100%);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+            transition: opacity 0.5s ease;
+        }
+
+        .dove-loader {
+            font-size: 5rem;
+            color: var(--brown-light);
+            animation: doveFly 3s ease-in-out infinite;
+            margin-bottom: 20px;
+        }
+
+        @keyframes doveFly {
+            0%, 100% { 
+                transform: translateY(0) rotate(0deg); 
+                opacity: 1;
+            }
+            25% { 
+                transform: translateY(-30px) rotate(-5deg); 
+                opacity: 0.8;
+            }
+            50% { 
+                transform: translateY(0) rotate(0deg); 
+                opacity: 1;
+            }
+            75% { 
+                transform: translateY(-15px) rotate(5deg); 
+                opacity: 0.9;
+            }
+        }
+
+        .loader-text {
+            color: var(--brown-dark);
+            font-size: 1.5rem;
+            letter-spacing: 1px;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+
+        /* Header */
+        header {
+            background-color: var(--white);
+            padding: 1rem 0;
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            box-shadow: 0 2px 15px var(--shadow);
+            border-bottom: 2px solid var(--beige-medium);
+        }
+
+        .header-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+
+        .logo h1 {
+            font-size: 1.8rem;
+            color: var(--brown-dark);
+            line-height: 1.2;
+        }
+
+        .logo-subtitle {
+            font-size: 0.9rem;
+            color: var(--brown-light);
+            font-weight: 300;
+            margin-top: 3px;
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--mustard-medium);
+        }
+
+        nav ul {
+            display: flex;
+            list-style: none;
+            gap: 25px;
+        }
+
+        nav a {
+            color: var(--brown-dark);
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 15px;
+            border-radius: 20px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        nav a:hover {
+            background-color: var(--beige-light);
+            color: var(--brown-dark);
+        }
+
+        nav a.active {
+            background-color: var(--mustard-light);
+            color: var(--brown-dark);
+        }
+
+        .mobile-menu-btn {
+            display: none;
+            background: none;
+            border: none;
+            color: var(--brown-dark);
+            font-size: 1.5rem;
+            cursor: pointer;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(248, 243, 233, 0.9), rgba(240, 230, 211, 0.9)), url('https://images.unsplash.com/photo-1544716278-e8c6cc6c6c4e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero h2 {
+            font-size: 2.8rem;
+            margin-bottom: 20px;
+            color: var(--brown-dark);
+        }
+
+        .hero p {
+            font-size: 1.2rem;
+            max-width: 800px;
+            margin: 0 auto 30px;
+            line-height: 1.6;
+            color: var(--brown-light);
+        }
+
+        .cta-button {
+            display: inline-block;
+            background: linear-gradient(to right, var(--mustard-medium), var(--mustard-light));
+            color: var(--brown-dark);
+            padding: 15px 40px;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            text-decoration: none;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(212, 185, 106, 0.3);
+            border: 1px solid rgba(212, 185, 106, 0.2);
+        }
+
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 6px 20px rgba(212, 185, 106, 0.4);
+        }
+
+        /* Dove animation */
+        .dove-container {
+            position: absolute;
+            top: 30px;
+            right: 5%;
+            width: 120px;
+            height: 120px;
+            animation: float 8s ease-in-out infinite;
+            z-index: 2;
+        }
+
+        .dove {
+            font-size: 5rem;
+            color: var(--coffee-medium);
+            filter: drop-shadow(0 0 5px rgba(255, 255, 255, 0.7));
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            33% { transform: translateY(-15px) rotate(3deg); }
+            66% { transform: translateY(10px) rotate(-2deg); }
+        }
+
+        /* Product Tabs */
+        .product-tabs {
+            max-width: 1200px;
+            margin: 0 auto 40px;
+            padding: 0 20px;
+        }
+
+        .tabs-header {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 10px;
+            margin-bottom: 30px;
+        }
+
+        .tab-button {
+            padding: 12px 25px;
+            background-color: var(--beige-medium);
+            border: none;
+            border-radius: 30px;
+            font-family: 'Merriweather', serif;
+            font-weight: 600;
+            color: var(--brown-dark);
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+        }
+
+        .tab-button:hover {
+            background-color: var(--mustard-light);
+            transform: translateY(-3px);
+        }
+
+        .tab-button.active {
+            background-color: var(--mustard-medium);
+            color: var(--brown-dark);
+            box-shadow: 0 4px 10px rgba(212, 185, 106, 0.3);
+        }
+
+        .tab-content {
+            display: none;
+            animation: fadeIn 0.5s ease;
+        }
+
+        .tab-content.active {
+            display: block;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(10px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* Sections */
+        section {
+            padding: 80px 0;
+        }
+
+        .section-title {
+            text-align: center;
+            margin-bottom: 50px;
+            position: relative;
+        }
+
+        .section-title h2 {
+            font-size: 2.5rem;
+            display: inline-block;
+            padding-bottom: 15px;
+            margin-bottom: 20px;
+        }
+
+        .section-title h2:after {
+            content: '';
+            position: absolute;
+            width: 100px;
+            height: 3px;
+            background: linear-gradient(to right, var(--mustard-medium), var(--coffee-light));
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: var(--brown-light);
+            max-width: 800px;
+            margin: 0 auto 40px;
+            font-size: 1.1rem;
+        }
+
+        /* Product Grids */
+        .products-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 30px;
+        }
+
+        .product-card {
+            background: var(--white);
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 5px 15px var(--shadow);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            border: 1px solid var(--beige-medium);
+        }
+
+        .product-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 15px 30px rgba(93, 76, 52, 0.15);
+        }
+
+        .product-image {
+            height: 250px;
+            background: linear-gradient(45deg, var(--beige-light), var(--coffee-light));
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: var(--brown-light);
+            font-size: 4rem;
+            position: relative;
+        }
+
+        .product-badge {
+            position: absolute;
+            top: 15px;
+            right: 15px;
+            background-color: var(--mustard-light);
+            color: var(--brown-dark);
+            padding: 5px 12px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .product-info {
+            padding: 25px;
+        }
+
+        .product-info h3 {
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+            color: var(--brown-dark);
+            min-height: 65px;
+        }
+
+        .product-description {
+            color: var(--brown-light);
+            line-height: 1.6;
+            margin-bottom: 15px;
+            min-height: 120px;
+        }
+
+        .product-price {
+            font-weight: 700;
+            color: var(--brown-dark);
+            font-size: 1.5rem;
+            margin-bottom: 20px;
+        }
+
+        .btn-add-to-cart {
+            display: block;
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, var(--coffee-medium), var(--brown-light));
+            color: var(--white);
+            border: none;
+            border-radius: 6px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .btn-add-to-cart:hover {
+            background: linear-gradient(to right, var(--brown-light), var(--brown-dark));
+            transform: scale(1.02);
+        }
+
+        /* Company Info */
+        .company-info {
+            background-color: var(--beige-light);
+            text-align: center;
+            padding: 80px 20px;
+        }
+
+        .company-info h2 {
+            color: var(--brown-dark);
+            margin-bottom: 30px;
+        }
+
+        .company-details {
+            max-width: 900px;
+            margin: 0 auto;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--brown-light);
+        }
+
+        .company-highlight {
+            color: var(--brown-dark);
+            font-weight: 700;
+            background-color: var(--mustard-light);
+            padding: 2px 8px;
+            border-radius: 4px;
+        }
+
+        /* Payment Section */
+        .payment-section {
+            background-color: var(--white);
+            padding: 80px 20px;
+        }
+
+        .payment-methods {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .bank-logo {
+            width: 100px;
+            height: 60px;
+            background: var(--beige-light);
+            border-radius: 8px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 3px 10px var(--shadow);
+            font-weight: 600;
+            color: var(--brown-dark);
+            transition: transform 0.3s ease;
+            border: 1px solid var(--beige-medium);
+        }
+
+        .bank-logo:hover {
+            transform: translateY(-5px);
+            background-color: var(--mustard-light);
+        }
+
+        .pse-button {
+            background: linear-gradient(to right, var(--coffee-medium), var(--brown-light));
+            color: var(--white);
+            padding: 15px 30px;
+            border-radius: 8px;
+            font-weight: 600;
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            margin-top: 30px;
+            text-decoration: none;
+            transition: all 0.3s ease;
+        }
+
+        .pse-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(184, 167, 141, 0.3);
+        }
+
+        /* Footer */
+        footer {
+            background-color: var(--brown-dark);
+            color: var(--beige-light);
+            padding: 60px 20px 30px;
+        }
+
+        .footer-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+        }
+
+        .footer-column h3 {
+            color: var(--mustard-light);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+        }
+
+        .footer-column ul {
+            list-style: none;
+        }
+
+        .footer-column ul li {
+            margin-bottom: 12px;
+        }
+
+        .footer-column ul li a {
+            color: var(--beige-light);
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+
+        .footer-column ul li a:hover {
+            color: var(--mustard-light);
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+        }
+
+        .social-icons a {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 40px;
+            height: 40px;
+            background: rgba(248, 243, 233, 0.1);
+            border-radius: 50%;
+            color: var(--beige-light);
+            font-size: 1.2rem;
+            transition: all 0.3s ease;
+        }
+
+        .social-icons a:hover {
+            background: var(--mustard-medium);
+            color: var(--brown-dark);
+            transform: translateY(-3px);
+        }
+
+        .whatsapp-float {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            width: 60px;
+            height: 60px;
+            background: #25d366;
+            color: white;
+            border-radius: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-size: 2rem;
+            box-shadow: 0 4px 20px rgba(37, 211, 102, 0.4);
+            z-index: 100;
+            transition: transform 0.3s ease;
+            text-decoration: none;
+        }
+
+        .whatsapp-float:hover {
+            transform: scale(1.1);
+        }
+
+        .copyright {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 20px;
+            border-top: 1px solid rgba(248, 243, 233, 0.1);
+            color: var(--coffee-light);
+            font-size: 0.9rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .hero h2 {
+                font-size: 2.3rem;
+            }
+            
+            .products-grid {
+                grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            }
+        }
+
+        @media (max-width: 768px) {
+            .mobile-menu-btn {
+                display: block;
+            }
+            
+            nav ul {
+                position: fixed;
+                top: 80px;
+                left: -100%;
+                width: 100%;
+                height: calc(100vh - 80px);
+                background: rgba(255, 255, 255, 0.98);
+                flex-direction: column;
+                align-items: center;
+                padding-top: 50px;
+                transition: left 0.3s ease;
+                box-shadow: 0 5px 15px var(--shadow);
+            }
+            
+            nav ul.active {
+                left: 0;
+            }
+            
+            .hero h2 {
+                font-size: 2rem;
+            }
+            
+            .hero p {
+                font-size: 1rem;
+            }
+            
+            .section-title h2 {
+                font-size: 2rem;
+            }
+            
+            .dove-container {
+                display: none;
+            }
+            
+            .tabs-header {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .tab-button {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+
+        @media (max-width: 576px) {
+            .products-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .hero {
+                padding: 70px 20px;
+            }
+            
+            .header-container {
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .logo h1 {
+                font-size: 1.6rem;
+                text-align: center;
+            }
+            
+            .logo {
+                flex-direction: column;
+                text-align: center;
+                gap: 10px;
+            }
+            
+            .logo-icon {
+                font-size: 2rem;
+            }
+            
+            .footer-container {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Preloader -->
+    <div id="preloader">
+        <div class="dove-loader">🕊</div>
+        <div class="loader-text">San Francisco de Padua Cali</div>
+    </div>
+
+    <!-- Header -->
+    <header>
+        <div class="header-container">
+            <div class="logo">
+                <div class="logo-icon">✝</div>
+                <div>
+                    <h1>SAN FRANCISCO DE PADUA CALI</h1>
+                    <div class="logo-subtitle">Artículos Religiosos desde 2006</div>
+                </div>
+            </div>
+            
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+            
+            <nav>
+                <ul id="mainMenu">
+                    <li><a href="#home" class="active">Inicio</a></li>
+                    <li><a href="#products">Productos</a></li>
+                    <li><a href="#company">Nosotros</a></li>
+                    <li><a href="#payment">Pagos</a></li>
+                    <li><a href="#contact">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero" id="home">
+            <div class="dove-container">
+                <div class="dove">🕊</div>
+            </div>
+            
+            <h2>Arte y Devoción en Cada Detalle</h2>
+            <p>Desde el 21 de febrero de 2006, ofrecemos artículos religiosos que inspiran fe y recuerdan nuestro amor a Dios. Cada pieza es una representación de nuestra divinidad y compromiso con el amor al prójimo.</p>
+            <a href="#products" class="cta-button">Ver Nuestra Colección</a>
+        </section>
+
+        <!-- Products Section -->
+        <section id="products">
+            <div class="section-title">
+                <h2>Nuestros Productos</h2>
+            </div>
+            
+            <div class="section-subtitle">
+                <p>Explora nuestra amplia selección de artículos religiosos organizados por categorías. Cada pieza es cuidadosamente seleccionada para inspirar tu fe y devoción.</p>
+            </div>
+            
+            <div class="product-tabs">
+                <div class="tabs-header">
+                    <button class="tab-button active" data-tab="saints">Santos (96)</button>
+                    <button class="tab-button" data-tab="amulets">Amuletos (50)</button>
+                    <button class="tab-button" data-tab="scapulars">Escapularios (25)</button>
+                    <button class="tab-button" data-tab="rosaries">Rosarios (25)</button>
+                    <button class="tab-button" data-tab="medals">Medallas (25)</button>
+                </div>
+                
+                <!-- Saints Tab -->
+                <div class="tab-content active" id="saints-tab">
+                    <div class="products-grid" id="saintsGrid">
+                        <!-- 96 saints will be generated here by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Amulets Tab -->
+                <div class="tab-content" id="amulets-tab">
+                    <div class="products-grid" id="amuletsGrid">
+                        <!-- 50 amulets will be generated here by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Scapulars Tab -->
+                <div class="tab-content" id="scapulars-tab">
+                    <div class="products-grid" id="scapularsGrid">
+                        <!-- 25 scapulars will be generated here by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Rosaries Tab -->
+                <div class="tab-content" id="rosaries-tab">
+                    <div class="products-grid" id="rosariesGrid">
+                        <!-- 25 rosaries will be generated here by JavaScript -->
+                    </div>
+                </div>
+                
+                <!-- Medals Tab -->
+                <div class="tab-content" id="medals-tab">
+                    <div class="products-grid" id="medalsGrid">
+                        <!-- 25 medals will be generated here by JavaScript -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Company Info -->
+        <section class="company-info" id="company">
+            <div class="section-title">
+                <h2>Nuestra Historia</h2>
+            </div>
+            
+            <div class="company-details">
+                <p>Fundada el <span class="company-highlight">21 de febrero de 2006</span>, <strong>SAN FRANCISCO DE PADUA CALI</strong> ha permanecido en el mismo lugar manteniendo nuestras costumbres y valores fundamentales: el amor al prójimo y una hermosa representación de nuestra divinidad.</p>
+                
+                <p style="margin-top: 20px;">Nuestra misión es ofrecer una <span class="company-highlight">hermosa representación de nuestra divinidad</span> para quienes desean tener algo que les recuerde su amor a Dios y fortalezca su fe en el camino espiritual.</p>
+                
+                <p style="margin-top: 20px;">Servicios:</p>
+                <ul style="list-style: none; margin-top: 15px; text-align: left; max-width: 700px; margin: 20px auto;">
+                    <li>✓ <strong>Domicilios en Cali y Área Metropolitana</strong> (Acopi y demás)</li>
+                    <li>✓ <strong>Envíos a nivel nacional</strong> a convenir</li>
+                    <li>✓ Atención personalizada con amor al prójimo</li>
+                    <li>✓ Productos bendecidos disponibles</li>
+                    <li>✓ Asesoría espiritual para selección de artículos</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- Payment Section -->
+        <section class="payment-section" id="payment">
+            <div class="section-title">
+                <h2>Métodos de Pago</h2>
+            </div>
+            
+            <div style="text-align: center; margin-bottom: 40px;">
+                <p>Ofrecemos múltiples opciones de pago para tu comodidad:</p>
+            </div>
+            
+            <div class="payment-methods">
+                <div class="bank-logo">Bancolombia</div>
+                <div class="bank-logo">Davivienda</div>
+                <div class="bank-logo">BBVA</div>
+                <div class="bank-logo">Banco de Bogotá</div>
+                <div class="bank-logo">Scotiabank</div>
+                <div class="bank-logo">Banco Popular</div>
+            </div>
+            
+            <div style="text-align: center; margin-top: 30px;">
+                <a href="#" class="pse-button">
+                    <i class="fas fa-credit-card"></i> Pagar con PSE
+                </a>
+                <p style="margin-top: 20px; color: var(--brown-light);">Área de pagos en desarrollo - Próximamente más opciones</p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" style="padding-top: 40px; background-color: var(--beige-light);">
+            <div class="section-title">
+                <h2>Contacto</h2>
+            </div>
+            
+            <div style="text-align: center; max-width: 900px; margin: 0 auto;">
+                <p style="margin-bottom: 30px; font-size: 1.1rem;">Estamos aquí para ayudarte en tu camino de fe. Contáctanos para más información sobre nuestros productos.</p>
+                
+                <div style="display: flex; flex-wrap: wrap; justify-content: center; gap: 40px; margin-bottom: 40px;">
+                    <div style="text-align: center; flex: 1; min-width: 200px;">
+                        <div style="font-size: 2.5rem; color: var(--brown-dark); margin-bottom: 10px;">
+                            <i class="fas fa-phone-alt"></i>
+                        </div>
+                        <h3 style="margin-bottom: 10px;">Teléfono / WhatsApp</h3>
+                        <p style="font-size: 1.2rem; font-weight: 600;">300 848 6851</p>
+                    </div>
+                    
+                    <div style="text-align: center; flex: 1; min-width: 200px;">
+                        <div style="font-size: 2.5rem; color: var(--brown-dark); margin-bottom: 10px;">
+                            <i class="fas fa-envelope"></i>
+                        </div>
+                        <h3 style="margin-bottom: 10px;">Correo Electrónico</h3>
+                        <p>sanfranciscodepadua.cali@gmail.com</p>
+                        <p style="font-size: 0.9rem; color: var(--brown-light);">(pendiente de crear oficialmente)</p>
+                    </div>
+                    
+                    <div style="text-align: center; flex: 1; min-width: 200px;">
+                        <div style="font-size: 2.5rem; color: var(--brown-dark); margin-bottom: 10px;">
+                            <i class="fab fa-instagram"></i>
+                        </div>
+                        <h3 style="margin-bottom: 10px;">Instagram</h3>
+                        <p>@sanfranciscodepadua_cali</p>
+                        <p style="font-size: 0.9rem; color: var(--brown-light);">(pendiente de crear oficialmente)</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer>
+        <div class="footer-container">
+            <div class="footer-column">
+                <h3>SAN FRANCISCO DE PADUA CALI</h3>
+                <p>Arte y devoción desde 2006. Ofrecemos artículos religiosos que inspiran y conectan con la divinidad, manteniendo siempre el amor al prójimo.</p>
+                <div class="social-icons">
+                    <a href="#"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#"><i class="fab fa-instagram"></i></a>
+                    <a href="#"><i class="fab fa-twitter"></i></a>
+                    <a href="#"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Categorías</h3>
+                <ul>
+                    <li><a href="#products" class="tab-link" data-tab="saints">Santos Devocionales</a></li>
+                    <li><a href="#products" class="tab-link" data-tab="amulets">Amuletos de Protección</a></li>
+                    <li><a href="#products" class="tab-link" data-tab="scapulars">Escapularios</a></li>
+                    <li><a href="#products" class="tab-link" data-tab="rosaries">Rosarios</a></li>
+                    <li><a href="#products" class="tab-link" data-tab="medals">Medallas Benditas</a></li>
+                </ul>
+            </div>
+            
+            <div class="footer-column">
+                <h3>Información de Contacto</h3>
+                <ul>
+                    <li><i class="fas fa-map-marker-alt"></i> Cali, Colombia</li>
+                    <li><i class="fas fa-phone-alt"></i> 300 848 6851</li>
+                    <li><i class="fas fa-envelope"></i> sanfranciscodepadua.cali@gmail.com</li>
+                    <li><i class="fas fa-clock"></i> Lunes a Sábado: 9am - 7pm</li>
+                    <li><i class="fas fa-church"></i> Domingos: 10am - 2pm</li>
+                </ul>
+            </div>
+        </div>
+        
+        <div class="copyright">
+            <p>&copy; 2023 SAN FRANCISCO DE PADUA CALI. Todos los derechos reservados. | Desde el 21 de febrero de 2006</p>
+            <p style="margin-top: 10px;">"Donde la fe se encuentra con la devoción en cada detalle"</p>
+        </div>
+    </footer>
+
+    <!-- WhatsApp Float Button -->
+    <a href="https://wa.me/573008486851?text=Hola%20San%20Francisco%20de%20Padua%20Cali,%20me%20interesan%20sus%20productos" class="whatsapp-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+    </a>
+
+    <script>
+        // Preloader
+        window.addEventListener('load', function() {
+            const preloader = document.getElementById('preloader');
+            setTimeout(() => {
+                preloader.style.opacity = '0';
+                setTimeout(() => {
+                    preloader.style.display = 'none';
+                }, 500);
+            }, 2000);
+        });
+
+        // Mobile menu toggle
+        const mobileMenuBtn = document.getElementById('mobileMenuBtn');
+        const mainMenu = document.getElementById('mainMenu');
+        
+        mobileMenuBtn.addEventListener('click', function() {
+            mainMenu.classList.toggle('active');
+            mobileMenuBtn.innerHTML = mainMenu.classList.contains('active') 
+                ? '<i class="fas fa-times"></i>' 
+                : '<i class="fas fa-bars"></i>';
+        });
+
+        // Close mobile menu when clicking on a link
+        document.querySelectorAll('nav a, .tab-link').forEach(link => {
+            link.addEventListener('click', function() {
+                mainMenu.classList.remove('active');
+                mobileMenuBtn.innerHTML = '<i class="fas fa-bars"></i>';
+            });
+        });
+
+        // Tab functionality
+        const tabButtons = document.querySelectorAll('.tab-button');
+        const tabContents = document.querySelectorAll('.tab-content');
+        
+        tabButtons.forEach(button => {
+            button.addEventListener('click', () => {
+                const tabId = button.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to clicked button and corresponding content
+                button.classList.add('active');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+                
+                // Update URL hash
+                window.location.hash = `products-${tabId}`;
+            });
+        });
+
+        // Tab links from footer
+        document.querySelectorAll('.tab-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                e.preventDefault();
+                const tabId = this.getAttribute('data-tab');
+                
+                // Remove active class from all buttons and contents
+                tabButtons.forEach(btn => btn.classList.remove('active'));
+                tabContents.forEach(content => content.classList.remove('active'));
+                
+                // Add active class to corresponding button and content
+                document.querySelector(`.tab-button[data-tab="${tabId}"]`).classList.add('active');
+                document.getElementById(`${tabId}-tab`).classList.add('active');
+                
+                // Scroll to products section
+                document.getElementById('products').scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+
+        // Product data
+        const productCategories = {
+            saints: {
+                count: 96,
+                names: [
+                    "San José", "Virgen María", "San Miguel Arcángel", "San Rafael", "San Gabriel",
+                    "San Antonio", "San Francisco de Asís", "Santa Rita de Casia", "San Judas Tadeo",
+                    "San Expedito", "San Benito", "Santa Teresita", "San Juan Pablo II", "Santo Domingo",
+                    "San Ignacio de Loyola", "San Martín de Porres", "San Cayetano", "San Roque",
+                    "San Sebastián", "Santa Lucía", "Santa Bárbara", "San Pablo", "San Pedro",
+                    "San Juan Bautista", "Santa Marta", "San Lucas", "San Marcos", "San Mateo"
+                ],
+                icon: "fas fa-pray",
+                description: "Imagen devocional perfecta para el altar familiar o como recordatorio espiritual. Material: resina pintada a mano con detalles dorados."
+            },
+            amulets: {
+                count: 50,
+                names: [
+                    "Cruz de Protección", "Manita de Azabache", "Ojo de Dios", "Tau de San Antonio",
+                    "Medalla Ángel de la Guarda", "Escapulario Verde", "Rosario de Protección",
+                    "Medalla de San Benito", "Cruz de Caravaca", "Anillo de la Fe",
+                    "Pulsera de la Virgen", "Colgante Divina Misericordia", "Medalla Milagrosa",
+                    "Cordón de San Francisco", "Llavero Ángel Custodio"
+                ],
+                icon: "fas fa-star-of-david",
+                description: "Amuleto de protección espiritual, bendecido para brindar seguridad y fe en el camino diario."
+            },
+            scapulars: {
+                count: 25,
+                names: [
+                    "Escapulario Café", "Escapulario Verde", "Escapulario Azul", "Escapulario Rojo",
+                    "Escapulario Morado", "Escapulario Marrón", "Escapulario Negro", "Escapulario Blanco",
+                    "Escapulario Dorado", "Escapulario Plateado"
+                ],
+                icon: "fas fa-cross",
+                description: "Escapulario bendecido, símbolo de protección y devoción. Disponible en diferentes colores y materiales."
+            },
+            rosaries: {
+                count: 25,
+                names: [
+                    "Rosario de Madera", "Rosario de Perlas", "Rosario de Cristal", "Rosario de Plata",
+                    "Rosario de Oro", "Rosario de Cuentas de Colores", "Rosario de Piedras Naturales",
+                    "Rosario de Ébano", "Rosario de Olivo", "Rosario con Crucifijo de Plata"
+                ],
+                icon: "fas fa-praying-hands",
+                description: "Rosario artesanal para la oración diaria. Disponible en diversos materiales y diseños."
+            },
+            medals: {
+                count: 25,
+                names: [
+                    "Medalla de la Virgen", "Medalla de San Benito", "Medalla del Sagrado Corazón",
+                    "Medalla de San Miguel", "Medalla de San Cristóbal", "Medalla de San Judas Tadeo",
+                    "Medalla de San Antonio", "Medalla de San Francisco", "Medalla de Santa Bárbara",
+                    "Medalla de San Expedito"
+                ],
+                icon: "fas fa-medal",
+                description: "Medalla religiosa bendecida, disponible en plata, oro y materiales diversos."
+            }
+        };
+
+        // Generate products for each category
+        Object.keys(productCategories).forEach(category => {
+            const catData = productCategories[category];
+            const gridElement = document.getElementById(`${category}Grid`);
+            
+            if (gridElement) {
+                for (let i = 1; i <= catData.count; i++) {
+                    const nameIndex = (i - 1) % catData.names.length;
+                    const productCard = document.createElement('div');
+                    productCard.className = 'product-card';
+                    
+                    // Determine price based on category and index
+                    let basePrice = 20;
+                    if (category === 'saints') basePrice = 25;
+                    if (category === 'amulets') basePrice = 18;
+                    if (category === 'scapulars') basePrice = 15;
+                    if (category === 'rosaries') basePrice = 30;
+                    if (category === 'medals') basePrice = 22;
+                    
+                    const price = (basePrice + (i % 10) * 3).toFixed(2);
+                    
+                    productCard.innerHTML = `
+                        <div class="product-image">
+                            <i class="${catData.icon}"></i>
+                            <div class="product-badge">${category.toUpperCase()}</div>
+                        </div>
+                        <div class="product-info">
+                            <h3>${catData.names[nameIndex]} ${i}</h3>
+                            <p class="product-description">${catData.description} Medidas: ${15 + (i % 10)}cm. Incluye certificado de autenticidad.</p>
+                            <div class="product-price">$${price}</div>
+                            <button class="btn-add-to-cart">Añadir al Carrito</button>
+                        </div>
+                    `;
+                    gridElement.appendChild(productCard);
+                }
+            }
+        });
+
+        // Add to cart functionality
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('btn-add-to-cart')) {
+                const productName = e.target.parentElement.querySelector('h3').textContent;
+                const productPrice = e.target.parentElement.querySelector('.product-price').textContent;
+                
+                // Show notification
+                const notification = document.createElement('div');
+                notification.style.cssText = `
+                    position: fixed;
+                    top: 100px;
+                    right: 20px;
+                    background: var(--mustard-light);
+                    color: var(--brown-dark);
+                    padding: 15px 25px;
+                    border-radius: 8px;
+                    box-shadow: 0 5px 15px var(--shadow);
+                    z-index: 1000;
+                    font-weight: 600;
+                    border-left: 4px solid var(--mustard-medium);
+                    animation: slideIn 0.3s ease;
+                `;
+                
+                notification.innerHTML = `<i class="fas fa-check-circle"></i> ${productName} añadido al carrito`;
+                document.body.appendChild(notification);
+                
+                // Remove notification after 3 seconds
+                setTimeout(() => {
+                    notification.style.animation = 'slideOut 0.3s ease';
+                    setTimeout(() => {
+                        document.body.removeChild(notification);
+                    }, 300);
+                }, 3000);
+            }
+        });
+
+        // Add CSS for notification animations
+        const style = document.createElement('style');
+        style.textContent = `
+            @keyframes slideIn {
+                from { transform: translateX(100%); opacity: 0; }
+                to { transform: translateX(0); opacity: 1; }
+            }
+            @keyframes slideOut {
+                from { transform: translateX(0); opacity: 1; }
+                to { transform: translateX(100%); opacity: 0; }
+            }
+        `;
+        document.head.appendChild(style);
+
+        // Smooth scrolling for anchor links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                if (this.classList.contains('tab-link')) return;
+                
+                e.preventDefault();
+                
+                const targetId = this.getAttribute('href');
+                if (targetId === '#') return;
+                
+                const targetElement = document.querySelector(targetId);
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80,
+                        behavior: 'smooth'
+                    });
+                }
+            });
+        });
+
+        // Set active menu item based on scroll
+        window.addEventListener('scroll', function() {
+            const sections = document.querySelectorAll('section[id]');
+            const scrollPosition = window.scrollY + 100;
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                const sectionId = section.getAttribute('id');
+                
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('nav a').forEach(link => {
+                        link.classList.remove('active');
+                        if (link.getAttribute('href') === `#${sectionId}`) {
+                            link.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
